@@ -6,10 +6,10 @@
         "src/lib/*"
       ],
       "@styles/*": [
-        "src/ui/styles/*"
+        "src/styles/*"
       ],
       "@components/*": [
-        "src/ui/components/*"
+        "src/components/*"
       ]
     }
   }
