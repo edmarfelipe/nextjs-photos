@@ -1,5 +1,5 @@
 import Hero from '@components/Hero'
-import { Container, Grid } from '@components/core'
+import { Container, Grid, Image } from '@components/core'
 import { photos, baseUrl } from '@lib/data';
 
 /**
@@ -26,12 +26,10 @@ export default function Home() {
             <Card>
               <ProgressiveImage
                 rootMargin="0% 0% 0%"
-                threshold={[1]}
-                delay={500}
                 src={`${baseUrl}tr:w-500,h-400,fo-auto/${url}`}
-                placeholder={`${baseUrl}tr:w-16,h-16/${url}`}
+                placeholder={`${baseUrl}tr:w-8,h-8/${url}`}
               >
-                {(src, loading) => <img className={loading ? 'loading' : 'loaded'} src={src} width='500px' height='400px' />}
+                {(src, loading) => <Image className={loading ? 'loading' : 'loaded'} src={src} />}
               </ProgressiveImage>
             </Card>
           ))

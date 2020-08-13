@@ -1,5 +1,5 @@
 import Hero from '@components/Hero'
-import { Container, Grid, Spinner } from '@components/core'
+import { Container, Grid, Spinner, Image } from '@components/core'
 import { photos, baseUrl } from '@lib/data';
 
 /**
@@ -10,15 +10,10 @@ import ProgressiveImage from "react-progressive-graceful-image";
 
 const Card = styled(ProgressiveImage)`
   overflow: hidden;
-
-  img.loading {
-    filter: blur(8px);
-  }
 `
 
 const Placeholder = styled.div`
-  height: 400px;
-  width: 500px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +29,6 @@ export default function Home() {
             <Card
               key={url}
               rootMargin="0% 0% 0%"
-              threshold={[1]}
               src={`${baseUrl}tr:w-500,h-400,fo-auto/${url}`}
               placeholder=''
             >
@@ -43,7 +37,7 @@ export default function Home() {
                   <Placeholder>
                     <Spinner />
                   </Placeholder> :
-                  <img src={src} width='500px' height='400px' />;
+                  <Image src={src} />;
               }}
             </Card>
           ))
