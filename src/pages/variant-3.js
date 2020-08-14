@@ -22,15 +22,16 @@ const Placeholder = styled.div`
 export default function Home() {
   return (
     <Container>
-      <Hero title='Amazing Gallery Photos' />
+      <Hero title='Amazing Gallery Photos' subTitle='Lazyload with javascript' />
       <Grid>
         {
-          photos.map(url => (
+          photos.map((url, index) => (
             <Card
               key={url}
               rootMargin="0% 0% 0%"
               src={`${baseUrl}tr:w-500,h-400,fo-auto/${url}`}
               placeholder=''
+              noLazyLoad={index < 3}
             >
               {(src, loading) => {
                 return loading ?
@@ -43,7 +44,7 @@ export default function Home() {
           ))
         }
       </Grid>
-    </Container>
+    </Container >
   )
 }
 

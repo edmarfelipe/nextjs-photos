@@ -19,15 +19,16 @@ const Card = styled.div`
 export default function Home() {
   return (
     <Container>
-      <Hero title='Amazing Gallery Photos' />
+      <Hero title='Amazing Gallery Photos' subTitle='Lazyload with javascript + Placeholder with LQIP' />
       <Grid>
         {
-          photos.map(url => (
+          photos.map((url, index) => (
             <Card>
               <ProgressiveImage
                 rootMargin="0% 0% 0%"
                 src={`${baseUrl}tr:w-500,h-400,fo-auto/${url}`}
                 placeholder={`${baseUrl}tr:w-8,h-8/${url}`}
+                noLazyLoad={index < 3}
               >
                 {(src, loading) => <Image className={loading ? 'loading' : 'loaded'} src={src} />}
               </ProgressiveImage>

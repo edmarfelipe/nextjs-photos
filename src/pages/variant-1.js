@@ -5,7 +5,7 @@ import { photos, baseUrl } from '@lib/data';
 export default function Home() {
   return (
     <Container>
-      <Hero title='Amazing Gallery Photos' />
+      <Hero title='Amazing Gallery Photos' subTitle='Baseline' />
       <Grid>
         {
           photos.map(url => (
